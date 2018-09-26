@@ -2,11 +2,12 @@
     /* background:linear-gradient(to right, rgb(255, 34, 34), rgb(255, 153, 153)); */
     padding: 10px;
     margin-bottom: auto;
-    height: 550px;
+    height: 600px;
     /* position: fixed; */
 }
 .bgimg {
     background-image: url('wedding.jpg');
+    background-size: cover;
     /* margin: 10px; */
     width: auto;
     height: 600px;

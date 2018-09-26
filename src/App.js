@@ -9,13 +9,9 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
+import CreateProfile from './Components/CreateProfile/CreateProfile';
 
-
-class App extends Component {
-
-  
-    
-
+class App extends Component { 
   render() {
     return (
       <div>
@@ -28,6 +24,7 @@ class App extends Component {
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path='/CreateProfile' component={CreateProfile} />
           </Switch>
           </div>
         </Router>

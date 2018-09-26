@@ -1,11 +1,11 @@
 import React from 'react';
-import { Grid, Paper, Tab, Tabs, TextField, Button } from '@material-ui/core';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Link
-} from 'react-router-dom';
+import { Grid, Paper, Tab, Tabs } from '@material-ui/core';
+// import {
+//     BrowserRouter as Router,
+//     Route,
+//     Switch,
+//     Link
+// } from 'react-router-dom';
 import CreateProfile from '../CreateProfile/CreateProfile';
 import '../LandingPage/LandingPage.css';
 import Home from "../Home/Home";
@@ -19,14 +19,18 @@ class LandingPage extends React.Component {
         super();
         this.state = {
             value: 0,
-            route: 'signin'
         }
     }
     handleChange = (event, value) => {
         this.setState({ value });
     };
-    signIn = (event, value) => {
-        this.setState({ route: "signin" })
+    signIn = (event, value) => {        
+        //if signin is successful -- pending
+        this.props.history.push('/Home');
+    }
+    register = (event,value) => {
+        //implent validation
+        this.props.history.push('/CreateProfile');
     }
     render() {
         return (
@@ -85,7 +89,7 @@ class LandingPage extends React.Component {
                                                 </div>
                                             </fieldset>
                                             <div className="">
-                                                <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" />
+                                                <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" onClick={this.register} />
                                             </div>
                                         </form>
                                     </main>
@@ -107,20 +111,6 @@ class LandingPage extends React.Component {
                     <Paper className="right_pane"><img src={couplePic} alt="couple"  height="450" /></Paper>
                 </Grid> */}
                 </Grid>
-
-                {/* <Router>
-                    <div>
-                        <Switch>
-                            <Route path="/home" component={Home} />
-                            <Route path="/create" component={CreateProfile} />
-                        </Switch>
-                    </div>
-                </Router>
-                {
-                    (this.state.signIn === "signin")
-                    ?<Link to="/home" style={{ textDecoration: 'none' }} > Home</Link>
-                    :<Link to="/create" style={{ textDecoration: 'none' }} > CreateProfile</Link>
-                } */}
             </div>
         );
     }
