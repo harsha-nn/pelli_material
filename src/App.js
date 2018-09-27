@@ -13,15 +13,27 @@ import CreateProfile from './Components/CreateProfile/CreateProfile';
 import Dashboard from "./Components/Dashboard/Dashboard";
 
 class App extends Component { 
+  constructor(props){
+    super(props);
+    this.state= {
+      isSignedIn:false,
+    }
+  }
+  checkSignIn=()=>{
+    console.log("Check signin called");
+    this.setState({isSignedIn:true})
+    // this.props.history.push('/Home');
+  }
   render() {
     return (
       <div>
        
         <Router>
           <div>
-          <Navigation />
+          <Navigation isSignedIn={this.state.isSignedIn}/>
           <Switch>
-            <Route path="/" component={LandingPage} exact />
+            {/* <Route path="/" component={LandingPage} exact /> */}
+            <Route path="/" render={()=><LandingPage checkSignIn={this.checkSignIn}/>} exact />
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

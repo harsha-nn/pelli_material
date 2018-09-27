@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Paper, Tab, Tabs } from '@material-ui/core';
+import { Grid, Paper, Tab, Tabs,Button } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 // import {
 //     BrowserRouter as Router,
 //     Route,
@@ -15,8 +16,8 @@ import '../LandingPage/LandingPage.css';
 
 
 class LandingPage extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             value: 0,
         }
@@ -33,6 +34,7 @@ class LandingPage extends React.Component {
         this.props.history.push('/CreateProfile');
     }
     render() {
+       
         return (
             <div className="bgimg">
                 <Grid container spacing={16}>
@@ -58,7 +60,9 @@ class LandingPage extends React.Component {
                                                 <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> Remember me</label>
                                             </fieldset>
                                             <div className="">
-                                                <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={this.signIn} />
+                                                {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={this.signIn} /> */}
+                                                {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={()=>this.props.checkSignIn()} /> */}
+                                                <Button color="inherit" onClick={()=>this.props.checkSignIn()}><Link to="/home" style={{ textDecoration: 'none' }} > Sign In</Link></Button>
                                             </div>
                                             <div className="lh-copy mt3">
                                                 <a href="#0" className="f6 link dim black db">Sign up</a>
