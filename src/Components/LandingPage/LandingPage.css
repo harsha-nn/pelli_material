@@ -1,15 +1,15 @@
-.right_pane{
-    /* background:linear-gradient(to right, rgb(255, 34, 34), rgb(255, 153, 153)); */
+/* .right_pane{
+    background:linear-gradient(to right, rgb(255, 34, 34), rgb(255, 153, 153));
     padding: 10px;
     margin-bottom: auto;
     height: 600px;
-    /* position: fixed; */
-}
+    position: fixed;
+} */
 .bgimg {
     background-image: url('wedding.jpg');
     background-size: cover;
     /* margin: 10px; */
     width: auto;
-    height: 600px;
+    height: 650px;
     /* border: 1px solid black; */
 }

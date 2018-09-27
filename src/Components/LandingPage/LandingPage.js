@@ -6,9 +6,9 @@ import { Grid, Paper, Tab, Tabs } from '@material-ui/core';
 //     Switch,
 //     Link
 // } from 'react-router-dom';
-import CreateProfile from '../CreateProfile/CreateProfile';
+// import CreateProfile from '../CreateProfile/CreateProfile';
 import '../LandingPage/LandingPage.css';
-import Home from "../Home/Home";
+// import Home from "../Home/Home";
 // import couplePic from '../LandingPage/6591.jpg';
 // import wedding from '../LandingPage/wedding.jpg';
 
@@ -34,7 +34,7 @@ class LandingPage extends React.Component {
     }
     render() {
         return (
-            <div style={{ margin: 10 }} className="bgimg">
+            <div className="bgimg">
                 <Grid container spacing={16}>
                     <Grid item xs={2}>
 
@@ -117,24 +117,3 @@ class LandingPage extends React.Component {
 }
 
 export default LandingPage;
-
-{/* <form noValidate autoComplete="on">
-<TextField
-  id="outlined-name"
-  label="Name"                          
-  defaultValue="enter your name here"
-//   onChange={this.handleChange('name')}
-  margin="normal"
-  variant="outlined"
-/>
-<TextField
-id="standard-password-input"
-label="Password"                        
-type="password"
-autoComplete="current-password"
-margin="normal"
-/>
-<Button variant="contained" color="primary" >
-    Submit
-</Button>
-</form> */}
