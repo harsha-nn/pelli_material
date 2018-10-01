@@ -64,7 +64,7 @@ class Navigation extends React.Component {
                                         disableUnderline
                                     />
                                 </div>
-                                <Button color="inherit" onClick={() => checkSignIn("false")}><Link to="/" style={{ textDecoration: 'none' }} > Signout</Link></Button>
+                                <Button color="inherit" onClick={() => checkSignIn("false")}><Link to="/" style={{ textDecoration: 'none',justifySelf:"flex-end" }} > Signout</Link></Button>
                                 <IconButton aria-owns={isMenuOpen ? 'material-appbar' : null}
                                     aria-haspopup="true"
                                     onClick={this.handleProfileMenuOpen}

@@ -1,17 +1,8 @@
 import React from 'react';
 import { Grid, Paper, Tab, Tabs,Button } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-// import {
-//     BrowserRouter as Router,
-//     Route,
-//     Switch,
-//     Link
-// } from 'react-router-dom';
-// import CreateProfile from '../CreateProfile/CreateProfile';
 import '../LandingPage/LandingPage.css';
-// import Home from "../Home/Home";
-// import couplePic from '../LandingPage/6591.jpg';
-// import wedding from '../LandingPage/wedding.jpg';
+
 
 
 
