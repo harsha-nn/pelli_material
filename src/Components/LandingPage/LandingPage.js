@@ -25,14 +25,14 @@ class LandingPage extends React.Component {
     handleChange = (event, value) => {
         this.setState({ value });
     };
-    signIn = (event, value) => {        
-        //if signin is successful -- pending
-        this.props.history.push('/Home');
-    }
-    register = (event,value) => {
-        //implent validation
-        this.props.history.push('/CreateProfile');
-    }
+    // signIn = (event, value) => {        
+    //     //if signin is successful -- pending
+    //     this.props.history.push('/Home');
+    // }
+    // register = (event,value) => {
+    //     //implent validation
+    //     this.props.history.push('/CreateProfile');
+    // }
     render() {
        
         return (
@@ -62,7 +62,7 @@ class LandingPage extends React.Component {
                                             <div className="">
                                                 {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={this.signIn} /> */}
                                                 {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={()=>this.props.checkSignIn()} /> */}
-                                                <Button color="inherit" onClick={()=>this.props.checkSignIn()}><Link to="/home" style={{ textDecoration: 'none' }} > Sign In</Link></Button>
+                                                <Button color="inherit" onClick={()=>this.props.checkSignIn("true")}><Link to="/Dashboard" style={{ textDecoration: 'none' }} > Sign In</Link></Button>
                                             </div>
                                             <div className="lh-copy mt3">
                                                 <a href="#0" className="f6 link dim black db">Sign up</a>
@@ -93,7 +93,8 @@ class LandingPage extends React.Component {
                                                 </div>
                                             </fieldset>
                                             <div className="">
-                                                <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" onClick={this.register} />
+                                                {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" onClick={this.register} /> */}
+                                                <Button color="inherit" onClick={()=>this.props.checkSignIn("true")}><Link to="/CreateProfile" style={{ textDecoration: 'none' }} > Submit</Link></Button>
                                             </div>
                                         </form>
                                     </main>

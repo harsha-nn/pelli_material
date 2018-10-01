@@ -11,17 +11,22 @@ import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import CreateProfile from './Components/CreateProfile/CreateProfile';
 import Dashboard from "./Components/Dashboard/Dashboard";
+import MyProfile from './Components/MyProfile/MyProfile';
 
 class App extends Component { 
   constructor(props){
     super(props);
     this.state= {
-      isSignedIn:false,
+      isSignedIn:"false",
     }
   }
-  checkSignIn=()=>{
+  componentDidMount = () => {
+    
+  }
+  
+  checkSignIn=(key)=>{
     console.log("Check signin called");
-    this.setState({isSignedIn:true})
+    this.setState({isSignedIn:key})
     // this.props.history.push('/Home');
   }
   render() {
@@ -30,7 +35,7 @@ class App extends Component {
        
         <Router>
           <div>
-          <Navigation isSignedIn={this.state.isSignedIn}/>
+          <Navigation isSignedIn={this.state.isSignedIn} checkSignIn={this.checkSignIn}/>
           <Switch>
             {/* <Route path="/" component={LandingPage} exact /> */}
             <Route path="/" render={()=><LandingPage checkSignIn={this.checkSignIn}/>} exact />
@@ -39,6 +44,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path='/CreateProfile' component={CreateProfile} />
             <Route path='/Dashboard' component={Dashboard} />
+            <Route path='/Myprofile' component={MyProfile} />
           </Switch>
           </div>
         </Router>

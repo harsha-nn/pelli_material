@@ -34,7 +34,7 @@ class CreateProfile extends React.Component   {
       handleNext = () => {
         const { activeStep } = this.state;
         (this.state.activeStep === 2)
-        ? this.props.history.push('/Home')
+        ? this.props.history.push('/Dashboard')
         :this.setState({activeStep: activeStep + 1})
       };
     
