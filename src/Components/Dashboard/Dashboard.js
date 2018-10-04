@@ -8,7 +8,7 @@ import { viewRecommendedProfile } from '../../actions';
 
 const mapStateToProps = state => {
   return {
-    profiles: state.profiles
+    profiles: "state.viewRecommendedProfile.profiles"
   }
 }
 
@@ -34,10 +34,10 @@ class Dashboard extends Component {
             <Grid container spacing={24}>
               <Grid item xs={6}>
                 <Paper className="ma3 pa3 dib bw2 shadow-5 bg-ligt-purple" >
-                  <article class="center mw5 mw6-ns hidden ba mv4">
-                    <h1 class="f4 bg-near-black white mv0 pv2 ph3">Title of card</h1>
-                    <div class="pa3 bt">
-                      <p class="f6 f5-ns lh-copy measure mv0">
+                  <article className="center mw5 mw6-ns hidden ba mv4">
+                    <h1 className="f4 bg-near-black white mv0 pv2 ph3">Title of card</h1>
+                    <div className="pa3 bt">
+                      <p className="f6 f5-ns lh-copy measure mv0">
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                         tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                         vero eos et accusam et justo duo dolores et ea rebum.
@@ -48,10 +48,10 @@ class Dashboard extends Component {
               </Grid>
               <Grid item xs={6}>
                 <Paper className="ma3 pa3 dib bw2 shadow-5 mw6">
-                  <article class="center mw5 mw6-ns hidden ba mv4">
-                    <h1 class="f4 bg-near-black white mv0 pv2 ph3">Title of card</h1>
-                    <div class="pa3 bt">
-                      <p class="f6 f5-ns lh-copy measure mv0">
+                  <article className="center mw5 mw6-ns hidden ba mv4">
+                    <h1 className="f4 bg-near-black white mv0 pv2 ph3">Title of card</h1>
+                    <div className="pa3 bt">
+                      <p className="f6 f5-ns lh-copy measure mv0">
                         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
                         tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                         vero eos et accusam et justo duo dolores et ea rebum.

@@ -1,54 +1,4 @@
-import React from 'react';
-// import { React } from "react-dom";
-import { Grid, Paper, Tab, Tabs, Button } from '@material-ui/core';
-import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
-import '../LandingPage/LandingPage.css';
-import { ON_SIGNIN } from './actions';
-
-
-const mapStateToProps = state => {
-    return {
-        user: state.onSignin.user,
-        isPending: state.onSignin.isPending,
-        error: state.onSignin.error,
-        isSignedIn:state.onSignin.isSignedIn,
-        isSignedOut:state.onSignOut.isSignedOut
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onSignin: (event) => {
-            event.preventDefault();
-            const data = new FormData(event.target);
-            console.log(data.get('email'), data.get('password'));
-            const user = {
-                email: data.get('email'),
-                password: data.get('password')
-            }
-            dispatch(ON_SIGNIN(user))
-        }
-    }
-}
-
-
-class LandingPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: 0,
-        }
-    }
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
-    render() {
-        const { onSignin, user, isPending,isSignedIn,isSignedOut } = this.props;
-        console.log("Landing Page --> user, isPending:",user,isPending);        
-        return (
-            <div className="bgimg">
-                <Grid container spacing={16}>
+<Grid container spacing={16}>
                     <Grid item xs={2}>
 
                     </Grid>
@@ -58,16 +8,28 @@ class LandingPage extends React.Component {
                                 this.state.value === 0
                                     ? <main className="pa4 black-80">
                                         <form className="measure center" onSubmit={onSignin}>
-                                            <label htmlFor="email">Enter your email</label>
-                                            <input id="email" name="email" type="email" />
-                                            <label htmlFor="birthdate">Enter your birth date</label>
-                                            <input id="password" name="password" type="password" />
-                                            {
-                                                !isSignedIn && !isSignedOut
-                                                ?<button >Sign In</button>
-                                                : <button><Link to="/Dashboard" style={{ textDecoration: 'none' }} >Sign in</Link>  </button>
-                                            }
-                                            
+                                            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+                                                <legend className="f4 fw6 ph0 mh0 calisto">Sign In</legend>
+                                                <div className="mt3">
+                                                    <label className="db fw6 lh-copy f6 code" for="email-address">Email</label>
+                                                    <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address" id="email-address" />
+                                                </div>
+                                                <div className="mv3">
+                                                    <label className="db fw6 lh-copy f6 code" for="password">Password</label>
+                                                    <input className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password" id="password" />
+                                                </div>
+                                                <label className="pa0 ma0 lh-copy f6 pointer"><input type="checkbox" /> Remember me</label>
+                                            </fieldset>
+                                            <div className="">
+                                                {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={this.signIn} /> */}
+                                                {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Sign in" onClick={()=>this.props.checkSignIn()} /> */}
+                                                <Button color="inherit" ><Link to="/Dashboard" style={{ textDecoration: 'none' }} > Sign In</Link></Button>
+                                                {/* <Button color="inherit"  onClick={onSignin}><Link to="/Dashboard" style={{ textDecoration: 'none' }} > Sign In</Link></Button>  */}
+                                            </div>
+                                            <div className="lh-copy mt3">
+                                                <a href="#0" className="f6 link dim black db">Sign up</a>
+                                                <a href="#0" className="f6 link dim black db">Forgot your password?</a>
+                                            </div>
                                         </form>
                                     </main>
 
@@ -94,11 +56,12 @@ class LandingPage extends React.Component {
                                             </fieldset>
                                             <div className="">
                                                 {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" onClick={this.register} /> */}
-                                                <Button color="inherit" onClick={() => this.props.checkSignIn("true")}><Link to="/CreateProfile" style={{ textDecoration: 'none' }} > Submit</Link></Button>
+                                                <Button color="inherit" onClick={()=>this.props.checkSignIn("true")}><Link to="/CreateProfile" style={{ textDecoration: 'none' }} > Submit</Link></Button>
                                             </div>
                                         </form>
                                     </main>
                             }
+
                         </Paper>
                         <Tabs
                             value={this.state.value}
@@ -115,25 +78,3 @@ class LandingPage extends React.Component {
                     <Paper className="right_pane"><img src={couplePic} alt="couple"  height="450" /></Paper>
                 </Grid> */}
                 </Grid>
-            </div>
-        );
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
-
-{/* <form onSubmit={onSignin}>
-                    <label htmlFor="email">Enter your email</label>
-                    <input id="email" name="email" type="email" />
-                    <label htmlFor="birthdate">Enter your birth date</label>
-                    <input id="password" name="password" type="password" />
-                    <button>Send data!</button>
-                </form>
-                {
-                    isPending 
-                    ? <h1>Loading</h1>
-                    :<div> <p>welcome {user.name}</p>
-                    <p>Your email is {user.email}</p>
-                    
-                    </div>
-                }         */}

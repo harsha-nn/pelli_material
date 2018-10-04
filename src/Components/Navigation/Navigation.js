@@ -4,8 +4,26 @@ import { AppBar, Toolbar, Typography, Button, Menu,MenuItem,Input } from '@mater
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import {connect} from 'react-redux';
+import {onSignout} from '../LandingPage/actions';
 // import MenuIcon from '@material-ui/icons/Menu';
 
+const mapStateToProps = state => {
+    return {
+        user: state.onSignin.user,
+        isPending: state.onSignin.isPending,
+        error: state.onSignin.error,
+        isSignedIn:state.onSignin.isSignedIn,  
+        isSignedOut:state.onSignOut.isSignedOut
+        // isSignedIn:state.onSignOut.isSignedIn      
+    }
+  }
+const mapDispatchToProps = (dispatch) =>{
+    console.log("onSignOut in mapdispatchtoprops called");
+    return {
+        onSignOut:()=>dispatch(onSignout()),             
+    }
+}  
 
 class Navigation extends React.Component {
     constructor(props) {
@@ -26,7 +44,7 @@ class Navigation extends React.Component {
     render() {
         const { anchorEl } = this.state;
         const isMenuOpen = Boolean(anchorEl);
-        const { isSignedIn, checkSignIn } = this.props;
+        const { isSignedIn, onSignOut, isSignedOut } = this.props;
         const renderMenu = (
             <Menu
                 anchorEl={anchorEl}
@@ -46,7 +64,7 @@ class Navigation extends React.Component {
             <div>
                 <AppBar position="static" color="inherit">
                     {
-                        isSignedIn === "true"
+                        isSignedIn === true && isSignedOut === false
                             ? <Toolbar>
                                 <Typography variant="title" color="inherit" >
                                     <Link to="/Dashboard" style={{ textDecoration: 'none' }} >
@@ -64,7 +82,7 @@ class Navigation extends React.Component {
                                         disableUnderline
                                     />
                                 </div>
-                                <Button color="inherit" onClick={() => checkSignIn("false")}><Link to="/" style={{ textDecoration: 'none',justifySelf:"flex-end" }} > Signout</Link></Button>
+                                <Button color="inherit"  onClick={onSignOut}><Link to="/" style={{ textDecoration: 'none',justifySelf:"flex-end" }} > Signout</Link></Button>
                                 <IconButton aria-owns={isMenuOpen ? 'material-appbar' : null}
                                     aria-haspopup="true"
                                     onClick={this.handleProfileMenuOpen}
@@ -87,10 +105,7 @@ class Navigation extends React.Component {
             </div>
             // </Router>
         );
-
     }
-
-
 }
 
-export default Navigation;
+export default connect(mapStateToProps,mapDispatchToProps)(Navigation);

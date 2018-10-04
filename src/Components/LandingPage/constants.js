@@ -1,1 +1,4 @@
-export const ON_SIGNIN= 'ON_SIGNIN';
+export const ON_AUTH_PENDING= 'ON_AUTH_PENDING';
+export const ON_AUTH_SUCCESS= 'ON_AUTH_SUCCESS';
+export const ON_AUTH_FAILURE= 'ON_AUTH_FAILURE';
+export  const SIGN_OUT="SIGN_OUT";
