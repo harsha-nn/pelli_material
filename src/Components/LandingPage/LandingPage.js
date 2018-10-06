@@ -2,7 +2,7 @@ import React from 'react';
 // import { React } from "react-dom";
 import { Grid, Paper, Tab, Tabs, Button } from '@material-ui/core';
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import '../LandingPage/LandingPage.css';
 import { ON_SIGNIN } from './actions';
 
@@ -65,12 +65,10 @@ class LandingPage extends React.Component {
                                             {
                                                 !isSignedIn && !isSignedOut
                                                 ?<button >Sign In</button>
-                                                : <button><Link to="/Dashboard" style={{ textDecoration: 'none' }} >Sign in</Link>  </button>
-                                            }
-                                            
+                                                : <button><Redirect to="/Dashboard" style={{ textDecoration: 'none' }} >Sign in</Redirect>  </button>
+                                            }                                            
                                         </form>
                                     </main>
-
                                     : <main className="pa4 black-80">
                                         <form className="measure center">
                                             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -94,7 +92,7 @@ class LandingPage extends React.Component {
                                             </fieldset>
                                             <div className="">
                                                 {/* <input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Submit" onClick={this.register} /> */}
-                                                <Button color="inherit" onClick={() => this.props.checkSignIn("true")}><Link to="/CreateProfile" style={{ textDecoration: 'none' }} > Submit</Link></Button>
+                                                <Button color="inherit" ><Link to="/CreateProfile" style={{ textDecoration: 'none' }} > Submit</Link></Button>
                                             </div>
                                         </form>
                                     </main>

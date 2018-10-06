@@ -62,14 +62,16 @@ class App extends Component {
           <div>
           <Navigation isSignedIn={isSignedIn} />
           <Switch>
-            <Route path="/" component={LandingPage} exact />        
+            <Route exact path="/"  render ={()=>{
+             return  isSignedIn? <Home /> : <LandingPage />
+            } } />        
             {/* <Route path="/" render={()=><LandingPage checkSignIn={this.checkSignIn}/>} exact /> */}            
-            <Route path="/home" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path='/CreateProfile' component={CreateProfile} />
-            <Route path='/Dashboard' component={Dashboard} />
-            <Route path='/Myprofile' component={MyProfile} />
+            <Route exact path="/home"  component={Home} />
+            <Route path="/about" exact  component={About} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path='/CreateProfile' exact component={CreateProfile} />
+            <Route path='/Dashboard' exact component={Dashboard} />
+            <Route exact path='/Myprofile' component={MyProfile} />
           </Switch>
           </div>
         </Router>       

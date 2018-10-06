@@ -75,26 +75,20 @@ class CreateProfile extends React.Component   {
                 </div>
               ) : (
                 <div>
-                  <Typography >{getStepContent(activeStep)}</Typography>
-                  <div>
-                    <Button
-                      disabled={activeStep === 0}
-                      onClick={this.handleBack}
-                      
-                    >
+                    {getStepContent(activeStep)}                  
+                    <Button disabled={activeStep === 0} onClick={this.handleBack}>
                       Back
                     </Button>
                     <Button variant="contained" color="primary" onClick={this.handleNext}>
                       {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                     </Button>
-                  </div>
+                  
                 </div>
               )}
             </div>
           </div>
         );
-      }
-    
+      }    
 }
 
 export default CreateProfile;
