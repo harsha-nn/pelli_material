@@ -1,5 +1,21 @@
 import React from 'react';
 
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onSignin: (event) => {
+//             event.preventDefault();
+//             const data = new FormData(event.target);
+//             console.log(data.get('email'), data.get('password'));
+//             const user = {
+//                 email: data.get('email'),
+//                 password: data.get('password')
+//             }
+//             dispatch(ON_SIGNIN(user))
+//         }
+//     }
+// }
+
+
 const Step1 = () => {
     return (
         <div>

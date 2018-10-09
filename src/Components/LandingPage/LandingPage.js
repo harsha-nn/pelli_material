@@ -74,15 +74,15 @@ class LandingPage extends React.Component {
                                             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                                                 <legend className="f4 fw6 ph0 mh0">Register</legend>
                                                 <div className="mt3">
-                                                    <label className="db fw6 lh-copy f6" for="first_name">First Name</label>
+                                                    <label className="db fw6 lh-copy f6" htmlFor="first_name">First Name</label>
                                                     <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="first_name" id="first_name" />
                                                 </div>
                                                 <div className="mt3">
-                                                    <label className="db fw6 lh-copy f6" for="last_name">Last Name</label>
+                                                    <label className="db fw6 lh-copy f6" htmlFor="last_name">Last Name</label>
                                                     <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="last_name" id="last_name" />
                                                 </div>
                                                 <div className="mt3">
-                                                    <label className="db fw6 lh-copy f6" for="email-address">Email</label>
+                                                    <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                                                     <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email-address" id="email-address" />
                                                 </div>
                                                 <div className="mv3">
